@@ -11,7 +11,7 @@ function App() {
   const db= getDatabase()
 
   useEffect(() => {
-    onValue(ref(db, 'users'), (snapshot)=>{
+    onValue(ref(db, 'users/'), (snapshot)=>{
       const datas= snapshot.val()
       const emptyData= []
       for(const id in datas){
@@ -22,7 +22,7 @@ function App() {
   }, [])
 
   const clickHandler=()=>{
-    push(ref(db, 'users'),{
+    push(ref(db, 'users/'),{
       name: username,
       email: "rupak@gmail.com"
     })
